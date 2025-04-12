@@ -48,4 +48,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Initialize the blog when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     renderPosts();
+    // Toggle Featured Stories section
+    const toggleButton = document.querySelector('.toggle-section');
+    const featuredGrid = document.querySelector('.featured-grid');
+    
+    if (toggleButton && featuredGrid) {
+        toggleButton.addEventListener('click', () => {
+            featuredGrid.classList.toggle('collapsed');
+            toggleButton.classList.toggle('collapsed');
+        });
+    }
 }); 
