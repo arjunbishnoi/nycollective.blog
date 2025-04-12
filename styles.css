@@ -614,16 +614,18 @@ img {
 
     .nav-container {
         height: 34px;
-        padding: 0 0.5rem;
+        padding: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
     }
 
     .logo {
         display: flex;
         align-items: center;
         transform: translateY(1px);
+        margin-left: 0.5rem;
     }
 
     .logo img {
@@ -634,6 +636,7 @@ img {
         display: flex;
         gap: 1.25rem;
         align-items: center;
+        margin-right: 0.5rem;
     }
 
     .search-toggle {
@@ -649,7 +652,7 @@ img {
         padding-right: 10px;
         border: none;
         cursor: pointer;
-        transition: background-color 0.2s ease;
+        transition: all 0.3s ease;
     }
 
     .search-toggle:hover {
@@ -659,6 +662,7 @@ img {
     .search-toggle i {
         font-size: 14px;
         color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
     }
 
     .search-toggle::before {
@@ -668,6 +672,46 @@ img {
         color: rgba(255, 255, 255, 0.6);
         font-size: 12px;
         font-weight: 400;
+        transition: all 0.3s ease;
+    }
+
+    /* Expanded search bar styles */
+    .search-toggle.expanded {
+        width: calc(100% - 120px); /* Adjust based on logo width and spacing */
+        justify-content: flex-start;
+        padding-left: 10px;
+        padding-right: 10px;
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .search-toggle.expanded i {
+        position: absolute;
+        right: 10px;
+    }
+
+    .search-toggle.expanded::before {
+        opacity: 0;
+    }
+
+    .search-toggle input {
+        position: absolute;
+        left: 10px;
+        width: calc(100% - 30px);
+        height: 100%;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 12px;
+        outline: none;
+        display: none;
+    }
+
+    .search-toggle.expanded input {
+        display: block;
+    }
+
+    .search-toggle input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
     }
 
     .menu-toggle {
@@ -687,7 +731,7 @@ img {
     }
 
     .menu-toggle span {
-        width: 16px;
+        width: 22px;
         height: 2px;
         background-color: white;
     }
@@ -762,11 +806,12 @@ img {
 
     .nav-container {
         height: 32px;
-        padding: 0 0.75rem;
+        padding: 0;
     }
 
     .logo {
         transform: translateY(1px);
+        margin-left: 0.5rem;
     }
 
     .logo img {
@@ -775,6 +820,7 @@ img {
 
     .nav-controls {
         gap: 1.5rem;
+        margin-right: 0.5rem;
     }
 
     .search-toggle {
@@ -784,6 +830,18 @@ img {
     
     .search-toggle::before {
         font-size: 11px;
+    }
+    
+    .search-toggle.expanded {
+        width: calc(100% - 100px); /* Adjust for smaller screens */
+    }
+    
+    .search-toggle input {
+        font-size: 11px;
+    }
+    
+    .menu-toggle span {
+        width: 20px;
     }
 
     .hero {

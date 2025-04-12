@@ -20,6 +20,7 @@
                 <div class="nav-controls">
                     <button class="search-toggle" aria-label="Search">
                         <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search" aria-label="Search input">
                     </button>
                     <button class="menu-toggle" aria-label="Menu">
                         <span></span>
@@ -203,13 +204,42 @@
                 }
             });
 
-            // Toggle search bar
-            searchToggle.addEventListener('click', function() {
-                searchBar.classList.toggle('active');
-                if (searchBar.classList.contains('active')) {
-                    navMenu.classList.add('active');
-                    menuToggle.classList.add('active');
-                    document.querySelector('.search-form input').focus();
+            // Toggle search bar expansion
+            searchToggle.addEventListener('click', function(e) {
+                // Prevent the click from closing the search bar immediately
+                e.stopPropagation();
+                
+                // Toggle the expanded class
+                searchToggle.classList.toggle('expanded');
+                
+                // Focus the input field when expanded
+                if (searchToggle.classList.contains('expanded')) {
+                    searchToggle.querySelector('input').focus();
+                }
+            });
+            
+            // Handle search input
+            const searchInput = searchToggle.querySelector('input');
+            searchInput.addEventListener('keydown', function(e) {
+                // If Enter is pressed, submit the search
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    // Here you would typically submit the search
+                    console.log('Searching for:', searchInput.value);
+                    // For now, just collapse the search bar
+                    searchToggle.classList.remove('expanded');
+                }
+                
+                // If Escape is pressed, collapse the search bar
+                if (e.key === 'Escape') {
+                    searchToggle.classList.remove('expanded');
+                }
+            });
+            
+            // Close search bar when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!searchToggle.contains(e.target)) {
+                    searchToggle.classList.remove('expanded');
                 }
             });
 
