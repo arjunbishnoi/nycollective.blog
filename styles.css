@@ -148,12 +148,15 @@ img {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     max-height: 0;
     overflow: hidden;
+    z-index: 999;
 }
 
 .nav-menu.active {
     opacity: 1;
     visibility: visible;
-    max-height: 500px;
+    max-height: 100vh;
+    height: calc(100vh - 44px); /* Subtract header height */
+    overflow-y: auto;
 }
 
 .search-bar {
@@ -791,6 +794,24 @@ img {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
+
+    .nav-menu {
+        position: fixed;
+        top: 44px; /* Match header height */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: auto;
+        max-height: none;
+        overflow-y: auto;
+        padding: 1.5rem;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        height: calc(100vh - 44px);
+        max-height: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -866,6 +887,14 @@ img {
 
     .blog-card img {
         height: 180px;
+    }
+
+    .nav-menu {
+        top: 42px; /* Adjust for smaller header height */
+    }
+
+    .nav-menu.active {
+        height: calc(100vh - 42px);
     }
 }
 
