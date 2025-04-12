@@ -11,35 +11,39 @@
 <body>
     <header class="site-header">
         <nav class="main-nav">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="logo/transparentlogo.png" alt="NY Collective Logo">
-                </a>
-            </div>
-            <div class="nav-right">
-                <button class="search-icon" aria-label="Search">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button class="hamburger" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </nav>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="search-container">
-                <form class="search-form" action="#" method="GET">
-                    <input type="search" placeholder="Search..." aria-label="Search">
-                    <button type="submit" aria-label="Submit search">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo/transparentlogo.png" alt="NY Collective Logo">
+                    </a>
+                </div>
+                <div class="nav-controls">
+                    <button class="search-toggle" aria-label="Search">
                         <i class="fas fa-search"></i>
                     </button>
-                </form>
-            </li>
-        </ul>
+                    <button class="menu-toggle" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="search-bar">
+                    <form class="search-form" action="#" method="GET">
+                        <input type="search" placeholder="Search..." aria-label="Search">
+                        <button type="submit" aria-label="Submit search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <main class="content">
@@ -183,34 +187,50 @@
 
     <script src="script.js"></script>
     <script>
-        // Mobile Navigation
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const searchIcon = document.querySelector('.search-icon');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const searchToggle = document.querySelector('.search-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const searchBar = document.querySelector('.search-bar');
+            
+            // Toggle mobile menu
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                // Hide search bar when menu is closed
+                if (!navMenu.classList.contains('active')) {
+                    searchBar.classList.remove('active');
+                }
+            });
 
-        searchIcon.addEventListener('click', () => {
-            navLinks.classList.add('active');
-            document.querySelector('.search-form input').focus();
-        });
+            // Toggle search bar
+            searchToggle.addEventListener('click', function() {
+                searchBar.classList.toggle('active');
+                if (searchBar.classList.contains('active')) {
+                    navMenu.classList.add('active');
+                    menuToggle.classList.add('active');
+                    document.querySelector('.search-form input').focus();
+                }
+            });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && !searchIcon.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && 
+                    !menuToggle.contains(e.target) && 
+                    !searchToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    searchBar.classList.remove('active');
+                }
+            });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    searchBar.classList.remove('active');
+                });
             });
         });
     </script>
