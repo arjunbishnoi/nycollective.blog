@@ -608,14 +608,96 @@ img {
         --section-spacing: 3rem;
     }
 
-    .container {
-        padding: 0 var(--container-padding);
+    .main-nav {
+        padding: 0.4rem 1.5rem;
     }
 
-    .main-nav {
+    .nav-container {
+        height: 34px;
+        padding: 0 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        transform: translateY(1px);
+    }
+
+    .logo img {
+        height: 24px;
+    }
+
+    .nav-controls {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+    }
+
+    .search-toggle {
+        position: relative;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        width: 160px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 10px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .search-toggle:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    .search-toggle i {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .search-toggle::before {
+        content: "Search";
+        position: absolute;
+        left: 10px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .menu-toggle {
+        padding: 0.35rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu-toggle {
         flex-direction: column;
-        padding: 1rem var(--container-padding);
-        height: auto;
+        justify-content: center;
+    }
+
+    .menu-toggle span {
+        width: 16px;
+        height: 2px;
+        background-color: white;
+    }
+
+    .menu-toggle span:first-child {
+        transform: translateY(-4px);
+    }
+
+    .menu-toggle span:last-child {
+        transform: translateY(4px);
     }
 
     .nav-links {
@@ -672,6 +754,36 @@ img {
         --card-height: 300px;
         --container-padding: 1rem;
         --section-spacing: 2rem;
+    }
+
+    .main-nav {
+        padding: 0.35rem 1.25rem;
+    }
+
+    .nav-container {
+        height: 32px;
+        padding: 0 0.75rem;
+    }
+
+    .logo {
+        transform: translateY(1px);
+    }
+
+    .logo img {
+        height: 22px;
+    }
+
+    .nav-controls {
+        gap: 1.5rem;
+    }
+
+    .search-toggle {
+        width: 120px;
+        height: 26px;
+    }
+    
+    .search-toggle::before {
+        font-size: 11px;
     }
 
     .hero {
