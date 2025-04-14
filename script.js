@@ -35,15 +35,26 @@ function renderPosts() {
     }
 }
 
-// Add smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize blog functionality
+    initBlog();
+});
+
+// Initialize blog functionality
+function initBlog() {
+    // Add smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
-});
+}
 
 // Initialize the blog when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,40 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleButton.classList.toggle('collapsed');
         });
     }
-
-    // Mobile Navigation
-    const menuToggle = document.querySelector('.menu-toggle');
-    const searchToggle = document.querySelector('.search-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    if (searchToggle) {
-        searchToggle.addEventListener('click', function() {
-            searchToggle.classList.toggle('active');
-        });
-    }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!navMenu.contains(e.target) && 
-            !menuToggle.contains(e.target) && 
-            !searchToggle.contains(e.target)) {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-        }
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-        });
-    });
 }); 
