@@ -177,71 +177,35 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
             const searchToggle = document.querySelector('.search-toggle');
             const navMenu = document.querySelector('.nav-menu');
-            const searchBar = document.querySelector('.search-bar');
             
             // Toggle mobile menu
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent event from bubbling up
                 menuToggle.classList.toggle('active');
                 navMenu.classList.toggle('active');
-                // Hide search bar when menu is closed
-                if (!navMenu.classList.contains('active')) {
-                    searchBar.classList.remove('active');
-                }
             });
 
-            // Toggle search bar expansion
+            // Toggle search functionality
             searchToggle.addEventListener('click', function(e) {
-                // Prevent the click from closing the search bar immediately
-                e.stopPropagation();
-                
-                // Toggle the expanded class
+                e.stopPropagation(); // Prevent the click from closing the search bar immediately
                 searchToggle.classList.toggle('expanded');
-                
-                // Focus the input field when expanded
-                if (searchToggle.classList.contains('expanded')) {
-                    searchToggle.querySelector('input').focus();
-                }
-            });
-            
-            // Handle search input
-            const searchInput = searchToggle.querySelector('input');
-            searchInput.addEventListener('keydown', function(e) {
-                // If Enter is pressed, submit the search
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    // Here you would typically submit the search
-                    console.log('Searching for:', searchInput.value);
-                    // For now, just collapse the search bar
-                    searchToggle.classList.remove('expanded');
-                }
-                
-                // If Escape is pressed, collapse the search bar
-                if (e.key === 'Escape') {
-                    searchToggle.classList.remove('expanded');
-                }
-            });
-            
-            // Close search bar when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!searchToggle.contains(e.target)) {
-                    searchToggle.classList.remove('expanded');
-                }
             });
 
             // Close menu when clicking outside
             document.addEventListener('click', function(e) {
                 if (!navMenu.contains(e.target) && 
-                    !menuToggle.contains(e.target) && 
-                    !searchToggle.contains(e.target)) {
+                    !menuToggle.contains(e.target)) {
                     navMenu.classList.remove('active');
                     menuToggle.classList.remove('active');
-                    searchBar.classList.remove('active');
+                }
+                
+                if (!searchToggle.contains(e.target)) {
+                    searchToggle.classList.remove('expanded');
                 }
             });
 
@@ -250,9 +214,19 @@
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('active');
                     menuToggle.classList.remove('active');
-                    searchBar.classList.remove('active');
                 });
             });
+            
+            // Toggle featured section
+            const toggleSection = document.querySelector('.toggle-section');
+            const featuredGrid = document.querySelector('.featured-grid');
+            
+            if (toggleSection && featuredGrid) {
+                toggleSection.addEventListener('click', function() {
+                    toggleSection.classList.toggle('collapsed');
+                    featuredGrid.classList.toggle('collapsed');
+                });
+            }
         });
     </script>
 </body>

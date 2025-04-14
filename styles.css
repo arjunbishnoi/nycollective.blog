@@ -61,7 +61,7 @@ img {
     background: #5D34FB;
     box-shadow: 0 2px 10px rgba(93, 52, 251, 0.2);
     z-index: 1000;
-    height: 72px; /* Fixed height for the header */
+    height: 60px; /* Reduced height from 72px to 60px */
 }
 
 .main-nav {
@@ -88,8 +88,7 @@ img {
 }
 
 .logo img {
-    height: 32px;
-    width: auto;
+    height: 28px; /* Reduced logo size for smaller header */
 }
 
 .nav-controls {
@@ -338,55 +337,65 @@ img {
     .nav-links a:hover {
         color: #FFE3EF;
     }
+
+    .hero {
+        margin: 2.5rem auto 3rem auto;
+        max-width: 800px;
+    }
+    
+    .hero h2 {
+        font-size: 3.5rem;
+    }
 }
 
 /* Adjust main content to account for fixed header */
 .content {
-    margin-top: 44px;
+    margin-top: 60px; /* Match new header height */
     padding: 0 var(--edge-margin);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Base hero styles */
 .hero {
-    padding: 1.5rem var(--container-padding);
-    background-color: var(--tertiary-color);
+    padding: 0;
     text-align: center;
-    border-radius: 24px;
-    margin: 7rem auto 3rem auto;
-    box-shadow: 0 10px 30px rgba(93, 52, 251, 0.15);
-    max-width: 800px;
+    width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 200px;
+    align-items: center;
+    margin: 2.5rem auto 3rem auto;
+    min-height: 0;
 }
 
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 227, 239, 0.8) 0%, rgba(255, 227, 239, 1) 100%);
-    z-index: 0;
+    display: none;
 }
 
 .hero h2 {
     font-size: 3.5rem;
     color: var(--primary-color);
-    margin-bottom: 0.75rem;
+    margin: 0;
     line-height: 1.2;
     position: relative;
     z-index: 1;
+    white-space: nowrap;
+    text-align: center;
+    box-sizing: border-box;
+    overflow: visible;
+    padding: 0;
+    max-width: 100%;
 }
 
 .hero p {
     font-size: 1.25rem;
     color: var(--text-dark);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 1rem auto 0;
     opacity: 0.9;
     font-weight: 700;
     letter-spacing: -0.3px;
@@ -710,7 +719,7 @@ img {
     }
 
     .logo img {
-        height: 32px;
+        height: 28px; /* Reduced logo size for smaller header */
     }
 
     .nav-controls {
@@ -764,9 +773,11 @@ img {
         align-items: center;
         justify-content: center;
         height: 24px;
+        width: 24px;
         background: none;
         border: none;
         cursor: pointer;
+        z-index: 1002; /* Ensure it's above the menu */
     }
 
     .menu-toggle {
@@ -778,6 +789,7 @@ img {
         width: 22px;
         height: 2px;
         background-color: white;
+        transition: transform 0.3s ease;
     }
 
     .menu-toggle span:first-child {
@@ -788,6 +800,14 @@ img {
         transform: translateY(4px);
     }
 
+    .menu-toggle.active span:first-child {
+        transform: translateY(0) rotate(45deg);
+    }
+
+    .menu-toggle.active span:last-child {
+        transform: translateY(0) rotate(-45deg);
+    }
+
     .nav-links {
         flex-direction: column;
         text-align: center;
@@ -795,164 +815,35 @@ img {
     }
 
     .hero {
-        padding: 1.5rem;
-        margin: 5rem auto 2rem auto;
-        min-height: 160px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 0.75rem;
-        transform: translateY(-10px);
+        margin: 2.5rem auto 2rem auto;
     }
-
+    
     .hero h2 {
-        font-size: 2.5rem;
-        margin-bottom: 0;
+        font-size: 1.75rem;
     }
 
     .hero p {
         font-size: 1.1rem;
-        padding: 0;
-        margin: 0;
-    }
-
-    .post-card {
-        height: var(--card-height);
-        padding: 2rem;
-    }
-
-    .post-card h3 {
-        font-size: 1.5rem;
-    }
-
-    .post-excerpt {
-        font-size: 1.1rem;
         padding: 0 1rem;
     }
 
-    .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 44px; /* Match header height */
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: auto;
-        max-height: none;
-        overflow-y: auto;
-        padding: 1.5rem;
-        z-index: 999;
-    }
-
-    .nav-menu.active {
-        height: calc(100vh - 44px);
-        max-height: none;
+    .section-header h2 {
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    :root {
-        --card-height: 300px;
-        --container-padding: 1rem;
-        --section-spacing: 2rem;
-        --edge-margin: 1.25rem;
-    }
-
-    .main-nav {
-        padding: 0;
-    }
-
-    .nav-container {
-        padding: 0 var(--edge-margin);
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo img {
-        height: 32px;
-    }
-
-    .nav-controls {
-        gap: 1.5rem;
-        margin-right: 0;
-        height: 100%;
-    }
-
-    .search-toggle {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .search-toggle i {
-        font-size: 1.2rem;
-    }
-    
-    .search-toggle.expanded {
-        width: 32px;
-    }
-    
-    .search-toggle input {
-        display: none;
-    }
-    
-    .menu-toggle span {
-        width: 20px;
-    }
-
     .hero {
-        padding: 1.25rem;
-        margin: 5rem auto 2rem auto;
-        min-height: 140px;
-        gap: 0.5rem;
-        transform: translateY(-8px);
+        margin: 2.5rem auto 2rem auto;
     }
-
+    
     .hero h2 {
-        font-size: 2rem;
+        font-size: 1.25rem;
     }
 
     .post-card {
         padding: 1.5rem;
     }
-
-    .post-card h3 {
-        font-size: 1.25rem;
-    }
-
-    .blog-card img {
-        height: 180px;
-    }
-
-    .nav-menu {
-        top: 42px; /* Adjust for smaller header height */
-    }
-
-    .nav-menu.active {
-        height: calc(100vh - 42px);
-    }
-}
-
-/* Search overlay */
-.search-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(93, 52, 251, 0.98);
-    z-index: 2000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
 }
 
 .search-overlay.active {
@@ -1399,10 +1290,6 @@ blockquote {
         --section-spacing: 3rem;
     }
 
-    .hero {
-        padding: calc(var(--header-height) + 3rem) var(--container-padding) 3rem;
-    }
-
     .hero h2 {
         font-size: 2.5rem;
     }
@@ -1452,5 +1339,22 @@ blockquote {
 
     .blog-card img {
         height: 180px;
+    }
+}
+
+/* Remove all other hero h2 font-size declarations */
+.content .hero h2 {
+    font-size: 3.5rem;
+}
+
+@media (max-width: 768px) {
+    .content .hero h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content .hero h2 {
+        font-size: 1.5rem;
     }
 } 
