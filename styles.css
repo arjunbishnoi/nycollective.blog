@@ -1189,4 +1189,114 @@ blockquote {
     display: inline-block;
     transform: translateY(2px);
     filter: drop-shadow(0 1px 1px rgba(93, 52, 251, 0.2));
+}
+
+.featured-story {
+    padding: 0 var(--gutter);
+    margin-bottom: 1.5rem;
+}
+
+.featured-story:last-child {
+    margin-bottom: var(--section-spacing);
+}
+
+.story-card {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-image: url('https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.story-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.6) 30%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.2) 80%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    width: 100%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.story-content h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.story-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 500px;
+}
+
+@media (max-width: 768px) {
+    .story-card {
+        height: 400px;
+    }
+    
+    .story-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .story-content p {
+        font-size: 0.85rem;
+    }
+}
+
+.story-meta {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 2;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+}
+
+.story-date, .story-read-time {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.story-date {
+    position: relative;
+}
+
+.story-date::after {
+    content: "•";
+    position: absolute;
+    right: -0.6rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+    .story-meta {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .story-date, .story-read-time {
+        font-size: 0.75rem;
+    }
 } 
