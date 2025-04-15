@@ -35,9 +35,69 @@ function renderPosts() {
     }
 }
 
+// Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize blog functionality
-    initBlog();
+    const menuIcon = document.querySelector('.menu-icon');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const searchIcon = document.querySelector('.search-icon');
+    const searchBar = document.querySelector('.search-bar');
+    
+    // Toggle mobile menu
+    menuIcon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menuIcon.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        
+        // Prevent scrolling when menu is open
+        if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Toggle search functionality
+    searchIcon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        searchIcon.classList.toggle('active');
+        searchBar.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mobileMenu.contains(e.target) && 
+            !menuIcon.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            menuIcon.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        if (!searchBar.contains(e.target) && 
+            !searchIcon.contains(e.target)) {
+            searchBar.classList.remove('active');
+            searchIcon.classList.remove('active');
+        }
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuIcon.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Toggle featured section
+    const toggleSection = document.querySelector('.toggle-section');
+    const featuredGrid = document.querySelector('.featured-grid');
+    
+    if (toggleSection && featuredGrid) {
+        toggleSection.addEventListener('click', function() {
+            toggleSection.classList.toggle('collapsed');
+            featuredGrid.classList.toggle('collapsed');
+        });
+    }
 });
 
 // Initialize blog functionality

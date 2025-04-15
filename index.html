@@ -13,8 +13,10 @@
         <nav class="main-nav">
             <div class="nav-container">
                 <div class="nav-menu">
-                    <button class="menu-icon">
-                        <i class="fas fa-bars"></i>
+                    <button class="menu-icon" aria-label="Toggle Menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
                     </button>
                     <div class="nav-links">
                         <a href="blog.html">Blogs</a>
@@ -38,6 +40,15 @@
             </div>
         </nav>
     </header>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="blog.html">Blogs</a>
+            <a href="newsletter.html">Newsletter</a>
+            <a href="donate.html">Donate</a>
+            <a href="support.html">Support</a>
+        </div>
+    </div>
 
     <main class="content">
         <section class="hero">
@@ -178,57 +189,6 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const searchToggle = document.querySelector('.search-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            // Toggle mobile menu
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent event from bubbling up
-                menuToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            // Toggle search functionality
-            searchToggle.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent the click from closing the search bar immediately
-                searchToggle.classList.toggle('expanded');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!navMenu.contains(e.target) && 
-                    !menuToggle.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-                
-                if (!searchToggle.contains(e.target)) {
-                    searchToggle.classList.remove('expanded');
-                }
-            });
-
-            // Close menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                });
-            });
-            
-            // Toggle featured section
-            const toggleSection = document.querySelector('.toggle-section');
-            const featuredGrid = document.querySelector('.featured-grid');
-            
-            if (toggleSection && featuredGrid) {
-                toggleSection.addEventListener('click', function() {
-                    toggleSection.classList.toggle('collapsed');
-                    featuredGrid.classList.toggle('collapsed');
-                });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
