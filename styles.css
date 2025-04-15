@@ -115,7 +115,7 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 24px;
-    height: 18px;
+    height: 16px;
     background: none;
     border: none;
     padding: 0;
@@ -137,7 +137,7 @@ img {
 }
 
 .menu-icon.active .hamburger-line:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
+    transform: translateY(6.5px) rotate(45deg);
 }
 
 .menu-icon.active .hamburger-line:nth-child(2) {
@@ -146,7 +146,7 @@ img {
 }
 
 .menu-icon.active .hamburger-line:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
+    transform: translateY(-6.5px) rotate(-45deg);
 }
 
 .nav-search {
@@ -221,23 +221,26 @@ img {
 /* Content */
 .content {
     margin-top: var(--header-height);
-    padding: var(--section-spacing) var(--gutter);
+    padding: 0;
     min-height: calc(100vh - var(--header-height));
 }
 
 /* Base hero styles */
 .hero {
-    padding: 0;
+    padding: 2rem 0;
     text-align: center;
-    width: 100%;
+    width: 100vw;
     position: relative;
     overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2.5rem auto 3rem auto;
+    margin: 0 0 3rem 0;
     min-height: 0;
+    background-color: var(--primary-color);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 .hero::before {
@@ -246,7 +249,7 @@ img {
 
 .hero h2 {
     font-size: 3.5rem;
-    color: var(--primary-color);
+    color: var(--tertiary-color);
     margin: 0;
     line-height: 1.2;
     position: relative;
@@ -261,9 +264,9 @@ img {
 
 .hero p {
     font-size: 1.25rem;
-    color: var(--text-dark);
+    color: var(--tertiary-color);
     max-width: 600px;
-    margin: 1rem auto 0;
+    margin: 0.5rem auto 0;
     opacity: 0.9;
     font-weight: 700;
     letter-spacing: -0.3px;
@@ -273,6 +276,10 @@ img {
 }
 
 /* Featured posts section */
+.featured-posts {
+    padding: var(--section-spacing) var(--gutter);
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -454,7 +461,7 @@ img {
 
 /* Regular blogs section */
 .regular-blogs {
-    margin-top: var(--section-spacing);
+    padding: 0 var(--gutter) var(--section-spacing) var(--gutter);
 }
 
 .regular-blogs h2 {
