@@ -127,16 +127,17 @@ img {
 
 .hamburger-line {
     display: block;
-    width: 100%;
+    width: 24px;
     height: 3px;
     background-color: #5D34FB;
-    margin: 2px 0;
+    margin: 0;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     transform-origin: center;
+    border-radius: 2px;
 }
 
 .menu-icon.active .hamburger-line:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(7.5px) rotate(45deg);
 }
 
 .menu-icon.active .hamburger-line:nth-child(2) {
@@ -145,7 +146,7 @@ img {
 }
 
 .menu-icon.active .hamburger-line:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-7.5px) rotate(-45deg);
 }
 
 .nav-search {
