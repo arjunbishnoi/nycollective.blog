@@ -9,160 +9,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="site-header">
-        <nav class="main-nav">
-            <div class="nav-container">
-                <div class="nav-menu">
-                    <button class="menu-icon" aria-label="Toggle Menu">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    <div class="nav-links">
-                        <a href="blog.html">Blogs</a>
-                        <a href="newsletter.html">Newsletter</a>
-                    </div>
-                </div>
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="logo/transparentlogo.png" alt="NY Collective Logo">
-                    </a>
-                </div>
-                <div class="nav-search">
-                    <div class="nav-links">
-                        <a href="donate.html">Donate</a>
-                        <a href="support.html">Support</a>
-                    </div>
-                    <button class="search-icon">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Header will be loaded dynamically -->
+    <header class="site-header"></header>
 
-    <div class="mobile-menu">
-        <div class="mobile-menu-content">
-            <a href="blog.html">Blogs</a>
-            <a href="newsletter.html">Newsletter</a>
-            <a href="donate.html">Donate</a>
-            <a href="support.html">Support</a>
-        </div>
-    </div>
+    <!-- Mobile menu will be loaded dynamically -->
+    <div class="mobile-menu"></div>
+
+    <!-- Search overlay will be loaded dynamically -->
+    <div class="search-overlay"></div>
 
     <main class="content">
-        <section class="hero">
-            <h2>The New York Collective™</h2>
-            <p>NYC Stories, Events, Culture and More.</p>
-        </section>
-        
+        <!-- Hero section will be loaded dynamically -->
+        <section class="hero"></section>
+
         <section class="featured-heading">
-            <h2>Featured Stories <span class="heading-arrow">↓</span></h2>
-        </section>
-
-        <section class="featured-story">
-            <div class="story-card">
-                <div class="story-meta">
-                    <span class="story-date">March 15, 2024</span>
-                    <span class="story-read-time">5 min read</span>
-                </div>
-                <div class="story-content">
-                    <h3>The Hidden Gems of Brooklyn's Street Art Scene</h3>
-                    <p>Discover the vibrant world of street art that transforms Brooklyn's walls into an open-air gallery, where every corner tells a unique story.</p>
-                </div>
+            <div class="heading-container">
+                <h2>Featured <span class="heading-arrow">↓</span></h2>
+                <a href="blog.html" class="view-all-btn">View All</a>
             </div>
         </section>
 
-        <section class="featured-story">
-            <div class="story-card" style="background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
-                <div class="story-meta">
-                    <span class="story-date">March 12, 2024</span>
-                    <span class="story-read-time">4 min read</span>
-                </div>
-                <div class="story-content">
-                    <h3>Manhattan's Secret Rooftop Gardens</h3>
-                    <p>Explore the hidden urban oases that transform Manhattan's skyline, where nature meets architecture in perfect harmony.</p>
-                </div>
+        <!-- Featured Stories Section -->
+        <section class="featured-stories">
+            <!-- Story cards will be rendered here -->
+        </section>
+
+        <section class="featured-heading">
+            <div class="heading-container">
+                <h2>All Blogs <span class="heading-arrow">↓</span></h2>
+                <a href="blog.html" class="view-all-btn">View All</a>
             </div>
         </section>
 
-        <section class="featured-story">
-            <div class="story-card" style="background-image: url('https://images.unsplash.com/photo-1522083165195-3424ed129620?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
-                <div class="story-meta">
-                    <span class="story-date">March 10, 2024</span>
-                    <span class="story-read-time">6 min read</span>
-                </div>
-                <div class="story-content">
-                    <h3>The Evolution of NYC's Food Truck Culture</h3>
-                    <p>From humble beginnings to culinary innovation, witness how food trucks have become an integral part of New York's diverse food scene.</p>
-                </div>
-            </div>
+        <!-- All Stories Section -->
+        <section class="featured-stories">
+            <!-- All story cards will be rendered here -->
         </section>
     </main>
 
-    <section class="featured-heading">
-        <h2>Blogs <span class="heading-arrow">↓</span></h2>
-    </section>
+    <!-- Footer will be loaded dynamically -->
+    <footer class="site-footer"></footer>
 
-    <section class="featured-story">
-        <div class="story-card" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
-            <div class="story-meta">
-                <span class="story-date">March 8, 2024</span>
-                <span class="story-read-time">7 min read</span>
-            </div>
-            <div class="story-content">
-                <h3>The Rise of Artisanal Coffee in NYC</h3>
-                <p>From hidden gems to established roasters, explore how New York's coffee scene has evolved into a craft culture of its own.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="featured-story">
-        <div class="story-card" style="background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
-            <div class="story-meta">
-                <span class="story-date">March 5, 2024</span>
-                <span class="story-read-time">4 min read</span>
-            </div>
-            <div class="story-content">
-                <h3>Queens' Hidden Food Markets</h3>
-                <p>Discover the vibrant food markets of Queens where diverse cultures come together through authentic culinary experiences.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="featured-story">
-        <div class="story-card" style="background-image: url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');">
-            <div class="story-meta">
-                <span class="story-date">March 3, 2024</span>
-                <span class="story-read-time">6 min read</span>
-            </div>
-            <div class="story-content">
-                <h3>NYC's Underground Music Scene</h3>
-                <p>From jazz basements to indie venues, dive into the thriving underground music scene that keeps New York's cultural heartbeat alive.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>NY Collective is a platform for sharing stories and connecting communities.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 NY Collective. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <!-- Load the story card component -->
+    <script src="components/story-card.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

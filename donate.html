@@ -7,6 +7,130 @@
     <link rel="icon" type="image/png" href="logo/roundlogo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .donate-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .donation-option {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .donation-option:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .donation-option.selected {
+            border-color: var(--primary-color);
+            background: var(--bg-white);
+        }
+
+        .donation-option h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .donation-option p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .custom-amount {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .custom-amount input {
+            width: 200px;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .donate-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto;
+            display: block;
+        }
+
+        .donate-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .impact-section {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .impact-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .impact-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .impact-item h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .donate-container {
+                padding: 1rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -62,53 +186,55 @@
     </div>
 
     <main class="content">
-        <section class="donate-section">
-            <div class="donate-header">
-                <h1>Support NY Collective</h1>
-                <p>Help us continue sharing New York's stories and supporting local communities.</p>
-            </div>
-            
+        <section class="hero">
+            <h2>Support Our Mission</h2>
+            <p>Help us continue sharing the stories that make New York City special.</p>
+        </section>
+
+        <section class="donate-container">
             <div class="donation-options">
-                <div class="donation-card">
-                    <h3>One-Time Donation</h3>
-                    <div class="amount-buttons">
-                        <button class="amount-btn">$25</button>
-                        <button class="amount-btn">$50</button>
-                        <button class="amount-btn">$100</button>
-                        <button class="amount-btn custom">Custom</button>
-                    </div>
-                    <button class="donate-button">Donate Now</button>
+                <div class="donation-option" data-amount="25">
+                    <h3>$25</h3>
+                    <p>Supports one local story</p>
                 </div>
-
-                <div class="donation-card">
-                    <h3>Monthly Support</h3>
-                    <div class="amount-buttons">
-                        <button class="amount-btn">$10/mo</button>
-                        <button class="amount-btn">$25/mo</button>
-                        <button class="amount-btn">$50/mo</button>
-                        <button class="amount-btn custom">Custom</button>
-                    </div>
-                    <button class="donate-button">Subscribe</button>
+                <div class="donation-option" data-amount="50">
+                    <h3>$50</h3>
+                    <p>Helps fund community events</p>
+                </div>
+                <div class="donation-option" data-amount="100">
+                    <h3>$100</h3>
+                    <p>Enables in-depth reporting</p>
+                </div>
+                <div class="donation-option" data-amount="250">
+                    <h3>$250</h3>
+                    <p>Supports multiple features</p>
                 </div>
             </div>
 
-            <div class="donation-impact">
+            <div class="custom-amount">
+                <h3>Custom Amount</h3>
+                <input type="number" id="custom-amount" placeholder="Enter amount" min="1">
+            </div>
+
+            <button class="donate-btn">Donate Now</button>
+
+            <div class="impact-section">
                 <h2>Your Impact</h2>
                 <div class="impact-grid">
-                    <div class="impact-card">
+                    <div class="impact-item">
                         <i class="fas fa-book-open"></i>
-                        <h3>Local Stories</h3>
-                        <p>Support independent journalism and local storytelling</p>
+                        <h3>Storytelling</h3>
+                        <p>Support local journalists and storytellers in sharing authentic NYC narratives.</p>
                     </div>
-                    <div class="impact-card">
+                    <div class="impact-item">
                         <i class="fas fa-users"></i>
-                        <h3>Community Events</h3>
-                        <p>Help us organize and promote community gatherings</p>
+                        <h3>Community</h3>
+                        <p>Help build stronger connections within New York's diverse communities.</p>
                     </div>
-                    <div class="impact-card">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>Education</h3>
-                        <p>Support workshops and educational programs</p>
+                    <div class="impact-item">
+                        <i class="fas fa-camera"></i>
+                        <h3>Visual Stories</h3>
+                        <p>Enable high-quality photography and videography of NYC's culture.</p>
                     </div>
                 </div>
             </div>
@@ -116,23 +242,7 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>NY Collective is a platform for sharing stories and connecting communities.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 NY Collective. All rights reserved.</p>
-        </div>
+        <!-- Footer will be loaded dynamically -->
     </footer>
 
     <script src="script.js"></script>

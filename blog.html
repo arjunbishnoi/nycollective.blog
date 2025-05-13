@@ -3,219 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - NY Collective™</title>
+    <title>Blog - The New York Collective™</title>
     <link rel="icon" type="image/png" href="logo/roundlogo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header class="site-header">
-        <nav class="main-nav">
-            <div class="nav-container">
-                <div class="nav-menu">
-                    <button class="menu-icon" aria-label="Toggle Menu">
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                        <span class="hamburger-line"></span>
-                    </button>
-                    <div class="nav-links">
-                        <a href="blog.html">Blogs</a>
-                        <a href="newsletter.html">Newsletter</a>
-                    </div>
-                </div>
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="logo/transparentlogo.png" alt="NY Collective Logo">
-                    </a>
-                </div>
-                <div class="nav-search">
-                    <div class="nav-links">
-                        <a href="donate.html">Donate</a>
-                        <a href="support.html">Support</a>
-                    </div>
-                    <button class="search-icon">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Navbar will be loaded dynamically -->
+    <header class="site-header"></header>
 
-    <div class="mobile-menu">
-        <div class="mobile-menu-content">
-            <a href="blog.html">Blogs</a>
-            <a href="newsletter.html">Newsletter</a>
-            <a href="donate.html">Donate</a>
-            <a href="support.html">Support</a>
-        </div>
-    </div>
+    <!-- Mobile menu will be loaded dynamically -->
+    <div class="mobile-menu"></div>
 
-    <div class="search-overlay">
-        <button class="close-search">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="search-container">
-            <form class="search-form">
-                <input type="text" class="search-input" placeholder="Search stories...">
-            </form>
-        </div>
-    </div>
+    <!-- Search overlay will be loaded dynamically -->
+    <div class="search-overlay"></div>
 
     <main class="content">
-        <section class="blog-header">
-            <h1>NYC Stories & Culture</h1>
-            <p>Explore the latest stories, events, and cultural phenomena from across New York City.</p>
+        <section class="hero">
+            <h2>Our Stories</h2>
+            <p>Discover the vibrant culture and hidden gems of New York City.</p>
         </section>
 
-        <section class="featured-posts">
-            <div class="section-header">
-                <h2>Featured Stories</h2>
+        <section class="blog-controls">
+            <div class="sort-options">
+                <label for="sort-by">Sort by:</label>
+                <select id="sort-by" class="sort-select">
+                    <option value="date-desc">Newest First</option>
+                    <option value="date-asc">Oldest First</option>
+                    <option value="views-desc">Most Viewed</option>
+                    <option value="views-asc">Least Viewed</option>
+                </select>
             </div>
-            <div class="post-grid featured-grid">
-                <article class="post-card">
-                    <a href="blog-posts/lower-east-side-gems.html">
-                        <span class="post-category">Culture</span>
-                        <h3>The Hidden Gems of Lower East Side</h3>
-                        <p class="post-excerpt">Discover the untold stories and secret spots that make the Lower East Side one of NYC's most fascinating neighborhoods.</p>
-                        <p class="post-meta">April 15, 2024</p>
-                    </a>
-                </article>
-
-                <article class="post-card">
-                    <a href="blog-posts/brooklyn-art-scene.html">
-                        <span class="post-category">Arts</span>
-                        <h3>Contemporary Art Scene in Brooklyn</h3>
-                        <p class="post-excerpt">Inside Brooklyn's thriving art community: meet the artists, explore the galleries, and understand the movement.</p>
-                        <p class="post-meta">April 14, 2024</p>
-                    </a>
-                </article>
-
-                <article class="post-card">
-                    <a href="blog-posts/queens-culinary-tour.html">
-                        <span class="post-category">Food</span>
-                        <h3>Queens: A Culinary World Tour</h3>
-                        <p class="post-excerpt">Experience the world's cuisines without leaving Queens. From authentic Thai street food to homestyle Greek dishes.</p>
-                        <p class="post-meta">April 13, 2024</p>
-                    </a>
-                </article>
-
-                <article class="post-card">
-                    <a href="blog-posts/summer-festival-guide.html">
-                        <span class="post-category">Events</span>
-                        <h3>Summer Festival Guide 2024</h3>
-                        <p class="post-excerpt">Your complete guide to NYC's most anticipated summer festivals. Music, art, food, and culture come together.</p>
-                        <p class="post-meta">April 12, 2024</p>
-                    </a>
-                </article>
+            <div class="search-filter">
+                <input type="text" id="blog-search" placeholder="Search stories..." class="search-input">
             </div>
         </section>
 
-        <section class="regular-blogs">
-            <h2>Latest Stories</h2>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <a href="blog-posts/underground-music.html">
-                        <span class="post-category">Music</span>
-                        <h3>Underground Music Venues Reshaping NYC Nights</h3>
-                        <p class="post-meta">April 11, 2024</p>
-                    </a>
-                </article>
-                
-                <article class="blog-card">
-                    <a href="blog-posts/soho-fashion.html">
-                        <span class="post-category">Style</span>
-                        <h3>Street Fashion: SoHo Edition</h3>
-                        <p class="post-meta">April 10, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/silicon-alley.html">
-                        <span class="post-category">Tech</span>
-                        <h3>Silicon Alley's Rising Stars</h3>
-                        <p class="post-meta">April 9, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/rooftop-gardens.html">
-                        <span class="post-category">Lifestyle</span>
-                        <h3>Rooftop Gardens: Urban Oasis</h3>
-                        <p class="post-meta">April 8, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/modern-design.html">
-                        <span class="post-category">Architecture</span>
-                        <h3>Modern Design in Historic Buildings</h3>
-                        <p class="post-meta">April 7, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/astoria-rising.html">
-                        <span class="post-category">Community</span>
-                        <h3>Neighborhood Watch: Astoria Rising</h3>
-                        <p class="post-meta">April 6, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/craft-cocktails.html">
-                        <span class="post-category">Drinks</span>
-                        <h3>Craft Cocktail Revolution</h3>
-                        <p class="post-meta">April 5, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/lost-subway.html">
-                        <span class="post-category">History</span>
-                        <h3>Lost Subway Stations</h3>
-                        <p class="post-meta">April 4, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/urban-athletics.html">
-                        <span class="post-category">Sports</span>
-                        <h3>Urban Athletics: City Games</h3>
-                        <p class="post-meta">April 3, 2024</p>
-                    </a>
-                </article>
-
-                <article class="blog-card">
-                    <a href="blog-posts/hidden-parks.html">
-                        <span class="post-category">Nature</span>
-                        <h3>Hidden Parks of Manhattan</h3>
-                        <p class="post-meta">April 2, 2024</p>
-                    </a>
-                </article>
-            </div>
+        <section class="featured-stories">
+            <!-- Story cards will be rendered here -->
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>NY Collective is a platform for sharing stories and connecting communities.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 NY Collective. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Footer will be loaded dynamically -->
+    <footer class="site-footer"></footer>
 
+    <!-- Load the story card component -->
+    <script src="components/story-card.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
